@@ -1,5 +1,0 @@
-#save earth
-#go getPythonEnvironmentInfo
-#agent
-getPythonEnvironmentInfo
-#newchanges
