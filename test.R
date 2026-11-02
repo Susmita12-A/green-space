@@ -98,11 +98,26 @@ calc_cv <- function (x) {
 
 bagmati <- read.csv("./data/raw/bagmati_raw_inventory.csv")
 
-bagmati
+str(bagmati)
+
+length(bagmati[bagmati$DBH_cm > 150, ])
+
+unique(bagmati$Species)
+
+bagmati$Species[
+bagmati$Species == "S. robusta" | bagmati$Species == "Shorea rubusta"
+] <- "Shorea robusta"
+
+unique(bagmati$Species)
+
+bagmati[
+bagmati$Tree_ID == "T203" & bagmati$Plot_ID == "P17",
+c("Plot_ID", "Tree_ID", "Species")
+]
 
 trees <- read.csv("./DATA/RAW/bagmati_raw_inventory.csv")
 trees 
-Head(trees)
+head(bagmati)
 nrow(trees) #2005
 ncol(trees) #14
 names (trees)
@@ -280,3 +295,26 @@ nrow(inv)
 ncol(inv)
 str(inv)
 names(inv)
+
+inv <- read.csv("./DATA/RAW/unit2_starter_trees.csv")
+
+#--------------------------------
+ % Cofficent of variations : (sd /mean v) * 100
+# Args1 : sd nikalna ko lagi chaine ards, mean ko lagi chaine ards, 
+#
+# first function : args liyera sd return gharnu pareyo
+# second function agrgs, mean return garnu pareyo
+# cv ko fumnctions, 
+# args lincha -> sd chaine, 
+# mean lai chaine -> suru ma sd call garcha, 
+# result store garcha, 
+# mean call garcha results store garcha ani 
+# yo sd ra mean jun calculated cha tayo use garera cv calculate garcha,
+#  juns arko variable ma store huncha ani 
+# next functiom cv lai percentage ma change garcha ani cv %$ return garcha
+
+# *****************************
+# RETURN : CV IN %
+# ****************************
+#------------------------------------
+%coef
